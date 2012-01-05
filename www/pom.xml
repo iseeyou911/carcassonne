@@ -1,0 +1,300 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.vtsft.tes</groupId>
+    <artifactId>tes-office</artifactId>
+    <version>1.2-SNAPSHOT</version>
+    <name>tes-office</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.version>${project.version}</project.version>
+        <project.sourceDir>${pom.basedir}/target/classes/</project.sourceDir>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>qa</id>
+            <properties>
+                <project.confPath>${pom.basedir}/configuration/qa.json</project.confPath>
+
+            </properties>
+        </profile>
+        <profile>
+            <id>uat2</id>
+            <properties>
+                <project.confPath>${pom.basedir}/configuration/uat2.json</project.confPath>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <project.confPath>${pom.basedir}/configuration/prod.json</project.confPath>
+            </properties>
+
+        </profile>
+
+        <profile>
+            <id>release</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>./</directory>
+                        <excludes>
+                            <exclude>**/.svn</exclude>
+                        </excludes>
+                    </resource>
+                </resources>
+
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>2.0</version>
+                        <configuration>
+                            <tagBase>http://192.168.1.42/svn/repo/tags</tagBase>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.groovy.maven</groupId>
+                        <artifactId>gmaven-plugin</artifactId>
+                        <dependencies>
+                            <dependency>
+                                <groupId>net.sourceforge.jtds</groupId>
+                                <artifactId>jtds</artifactId>
+                                <version>1.2.4</version>
+                            </dependency>
+                        </dependencies>
+                        <executions>
+                            <execution>
+                                <id>before-package</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                                <configuration>
+                                    <source>
+                                        ${pom.basedir}/configuration/Preprocessor.groovy
+                                    </source>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+
+
+                    <plugin>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-config</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <tasks>
+                                        <exec dir="${project.build.directory}/classes/vendors/dev/util/buildscripts/" executable="${project.build.directory}/classes/vendors/dev/util/buildscripts/build.bat" os="${os.name}">
+                                            <arg line="profileFile=${project.build.directory}/classes/tes.profile.js" />
+                                        </exec>
+                                        <delete dir="${project.build.directory}/classes/vendors/dev" />
+                                        <tar destfile="${project.build.directory}/tes-office.tar">
+                                            <fileset dir="${project.build.directory}/classes" includes="**/*" />
+                                        </tar>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>prepare</id>
+
+            <dependencies>
+                <dependency>
+                    <groupId>org.dojotoolkit</groupId>
+                    <artifactId>dojo-tes</artifactId>
+                    <version>1.6.1.m3</version>
+                    <type>zip</type>
+                </dependency>
+            </dependencies>
+
+            <build>
+
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>unpackToWebapp</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+
+                                            <groupId>org.dojotoolkit</groupId>
+                                            <artifactId>dojo-tes</artifactId>
+                                            <version>1.6.1.m3</version>
+                                            <type>zip</type>
+                                            <overWrite>true</overWrite>
+                                            <excludes>
+                                                **/themes/soria/**/*, **/themes/soria,
+                                                **/themes/nihilo/**/*, **/themes/nihilo
+                                            </excludes>
+                                            <outputDirectory>vendors/dev</outputDirectory>
+                                        </artifactItem>
+                                    </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+
+            </build>
+        </profile>
+
+        <profile>
+            <id>release2</id>
+
+            <dependencies>
+                <dependency>
+                    <groupId>org.dojotoolkit</groupId>
+                    <artifactId>dojo-tes-mini</artifactId>
+                    <version>1.6.1.m3</version>
+                    <type>zip</type>
+                </dependency>
+            </dependencies>
+
+            <build>
+
+                <resources>
+                    <resource>
+                        <directory>./</directory>
+                        <excludes>
+                            <exclude>**/.svn</exclude>
+                        </excludes>
+                    </resource>
+                </resources>
+
+                <plugins>
+
+                    <plugin>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>2.0</version>
+                        <configuration>
+                            <tagBase>http://192.168.1.42/svn/repo/tags</tagBase>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>unpackToWebapp</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+
+                                            <groupId>org.dojotoolkit</groupId>
+                                            <artifactId>dojo-tes-mini</artifactId>
+                                            <version>1.6.1.m3</version>
+                                            <type>zip</type>
+                                            <overWrite>true</overWrite>
+                                            <outputDirectory>${project.build.directory}/classes/vendors/release</outputDirectory>
+                                        </artifactItem>
+                                    </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.groovy.maven</groupId>
+                        <artifactId>gmaven-plugin</artifactId>
+                        <dependencies>
+                            <dependency>
+                                <groupId>net.sourceforge.jtds</groupId>
+                                <artifactId>jtds</artifactId>
+                                <version>1.2.4</version>
+                            </dependency>
+                        </dependencies>
+                        <executions>
+                            <execution>
+                                <id>before-package</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                                <configuration>
+                                    <source>
+                                        ${pom.basedir}/configuration/Preprocessor.groovy
+                                    </source>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-config</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <tasks>
+                                        <delete dir="${project.build.directory}/classes/vendors/dev" />
+                                        <tar destfile="${project.build.directory}/tes-office.tar">
+                                            <fileset dir="${project.build.directory}/classes" includes="**/*" />
+                                        </tar>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+
+            </build>
+        </profile>
+    </profiles>
+
+    <scm>
+        <developerConnection>scm:svn:http://192.168.1.42/svn/repo/trunk/web-ins-bundle/travel-ext-bundle/tes-office
+        </developerConnection>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>fourty-two</id>
+            <name>Fourty Two Releases</name>
+            <url>http://192.168.1.207/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>fourty-two-snapshots</id>
+            <name>Fourty Two Snapshots</name>
+            <url>http://192.168.1.207/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+
+                
+            </build>
+
+</project>

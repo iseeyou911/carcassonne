@@ -1,0 +1,15 @@
+#UserSettings_okCancelButtonContainer {
+    position: fixed;
+    right: 30px;
+    margin-top: -30px;
+}
+
+.productColumn {
+    float: left;
+    margin: 10px;
+}
+
+.productTitle {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc
+}
