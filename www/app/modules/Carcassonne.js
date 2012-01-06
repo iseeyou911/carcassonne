@@ -22,19 +22,9 @@
 
             this.template.mainLayout.resize();
 
-
             var cards = this.sandbox.getResource("cards");
 
-            for (var i = 0, promises = []; i < cards.length; i++) {
-                promises.push(this._getImage(cards[i]));
-            }
-
-           (new dojo.DeferredList(promises)).addCallback(function (e) {
-
-               self.template.field.cards = cards;
-               self.template.field.init();
-               self.template.field.newGame();
-            });
+           self.template.field.init(cards);
         },
 
         _refresh : function () {
@@ -45,26 +35,6 @@
         },
 
         _destroy : function () {
-        },
-
-        _getImage : function (item) {
-            var self = this;
-            var dfd = new dojo.Deferred();
-            var img = new Image();
-
-            img.src = item.image;
-
-            img.onload = function (e) {
-                item.image = img
-
-                dfd.callback({event : e, item : item});
-            }
-
-            img.onerror = function (e) {
-                dfd.errback({event : e, item : item});
-            }
-
-            return dfd;
         }
     })
 
