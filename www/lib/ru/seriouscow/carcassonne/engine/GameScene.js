@@ -57,9 +57,7 @@ dojo.declare('ru.seriouscow.carcassonne.engine.GameScene', null, {
                 self.scene.after(200, function(){
                     self.scene.when('mousewheel', doScale);
                 })
-            } else {
-                //self.scene.when('mousewheel', doScale);
-            }
+            } 
         }
         this.scene.when('mousewheel', doScale);
 
@@ -112,8 +110,8 @@ dojo.declare('ru.seriouscow.carcassonne.engine.GameScene', null, {
             centered : true,
             shadowBlur : 4,
             shadowColor : '#000000',
-            stroke : true,
-            strokeWidth : 3,
+            stroke : '#b22929',
+            strokeWidth : 5,
             scale: scale
         });
 
@@ -150,7 +148,6 @@ dojo.declare('ru.seriouscow.carcassonne.engine.GameScene', null, {
                 y: node.t + CARCASSONNE.WIDTH / 2,
                 dWidth: CARCASSONNE.WIDTH,
                 dHeight : CARCASSONNE.WIDTH,
-
                 centered : true,
                 zIndex: 1,
                 shadowBlur : 10,
@@ -164,7 +161,6 @@ dojo.declare('ru.seriouscow.carcassonne.engine.GameScene', null, {
                 dY: node.t + CARCASSONNE.WIDTH / 2,
                 dWidth: CARCASSONNE.WIDTH,
                 dHeight : CARCASSONNE.WIDTH,
-
                 centered : true,
                 zIndex: 1,
                 cursor : 'pointer'
@@ -223,7 +219,7 @@ dojo.declare('ru.seriouscow.carcassonne.engine.GameScene', null, {
             zIndex: 1,
             shadowBlur : 4,
             shadowColor : '#000000',
-            stroke : "#b22929",
+            stroke : '#b22929',
             strokeWidth : 5,
             cursor : 'pointer'
         });

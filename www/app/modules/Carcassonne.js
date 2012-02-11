@@ -9,8 +9,9 @@
 (function (global) {
     dojo.provide("Carcassonne");
     dojo.require("ru.vtsft.tes.engine.module.ITemplatedModule");
-    dojo.require("ru.seriouscow.carcassonne.engine.Field");
+   // dojo.require("ru.seriouscow.carcassonne.engine.Field");
     dojo.require("dojo.DeferredList");
+    dojo.require("ru.seriouscow.carcassonne.tools.MarkupTool");
 
     $.declare("Carcassonne", [ru.vtsft.tes.engine.module.ITemplatedModule], {
 
@@ -24,7 +25,7 @@
 
             var cards = this.sandbox.getResource("cards");
 
-           self.template.field.init(cards);
+           //self.template.field.init(cards);
         },
 
         _refresh : function () {
