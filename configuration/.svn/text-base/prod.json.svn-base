@@ -1,0 +1,4 @@
+rootPath:'/tes-office/'
+restServiceUrl:'http://web-ins.vtsft.ru/travel-ext-services/'
+birtServerUrl:'http://web-ins.vtsft.ru/travel-ext-services/'
+reportServerUrl:'http://web-ins.vtsft.ru/tes-report/'

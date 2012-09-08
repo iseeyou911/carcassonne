@@ -1,0 +1,29 @@
+{
+    "modules": [],
+    "layout": {
+    },
+    "locale": "ru",
+    "path": {
+        "DESCRIPTOR":"app/descriptors/",
+        "MODULE": "app/modules/",
+        "LOCALE": "app/locales/",
+        "TEMPLATE": "app/templates/"
+    },
+    "pageManager" : {
+    	"nodeId" : "PageManager",
+	    "startPage" : "MainPage",
+	    "pages" : {
+	    	"MainPage" : {
+	    		"name" : "MainPage",
+                "caption" : "Главная",
+	    		"template" : "app/pages/MainPage.html",
+                "modules": ["Carcassonne"],
+                "layout": {
+                    "Carcassonne" : "Carcassonne"
+                }
+	    	}
+        }
+    }
+    
+    	    
+}

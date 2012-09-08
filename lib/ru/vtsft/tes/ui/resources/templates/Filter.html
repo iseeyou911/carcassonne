@@ -1,0 +1,48 @@
+<div baseClass="filter" style="padding: 5px;">
+	<ul id="${id}_filterList" class="filterList">
+		<li class="filterButtonConteiner">
+		
+		<div dojoType="dijit.form.DropDownButton" dojoAttachPoint="filterDialogButton" disabled="true">
+			<span>${locale.ADD_FILTER_PLUS}</span>
+			<div dojoAttachPoint="filterDialog" dojoType="dijit.TooltipDialog">
+	           <div class="dijitDialogTitleBar" style="width: 410px">
+                    ${locale.FILTEING_FIELD}:
+                    <input dojoType="dijit.form.ComboBox" dojoAttachPoint="filteringSelect" >
+               </div>
+               <div class="TooltipDialogContent" >
+                   <div dojoAttachPoint="dialog_placeholder" class="FilterPlaceHolder" align="center"><h2>${locale.INFO_MSG}</h2></div>
+                   <div dojoAttachPoint="dialog_content">
+                       <input type="checkbox" dojoType="dijit.form.CheckBox" id="${id}_isRemoveOld" dojoAttachPoint="isRemoveOld" style="display: none"/>
+                        <label for="${id}_isRemoveOld" style="display: none">
+                            ${locale.REMOVE_OLD}
+                        </label>
+                        <input type="checkbox" dojoType="dijit.form.CheckBox" id="${id}_isExcludinfFilter" dojoAttachPoint="isExcludinfFilter"/>
+                        <label for="${id}_isExcludinfFilter">
+                            ${locale.DECLUDING_FILTER}
+                        </label>
+                        <div id="${id}_filterFields" class="filterFields" dojoAttachPoint="filterFields">
+
+                        </div>
+                   </div>
+                </div>
+				<div id="${id}_filterButtons" class="dijitDialogPaneButtons smallButtons" align="right">
+                    <button dojoType="dijit.form.Button" dojoAttachPoint="addMoreButton" class="smallButton" type="button">
+						${locale.ADD_MORE}
+					</button>
+                    <button dojoType="dijit.form.Button" dojoAttachPoint="cancelButton" class="smallButton">
+						${locale.CANCEL}
+					</button>
+					<button dojoType="dijit.form.Button" dojoAttachPoint="addButton" class="smallButton primary" type="button">
+						${locale.ADD}
+					</button>
+
+
+	
+				</div>
+			</div>
+	
+		</div>
+		</li>
+	</ul>
+    <div style="clear: both"></div>
+</div>

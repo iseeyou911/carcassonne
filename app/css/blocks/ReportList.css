@@ -1,0 +1,19 @@
+.reportList {
+    list-style: none;
+    color: #666;
+}
+
+.reportList li {
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.reportList li .label {
+    margin-left: 3px;
+    text-decoration: underline;
+}
+
+.reportList li:hover {
+    padding-top: 10px;
+    cursor: pointer;
+}

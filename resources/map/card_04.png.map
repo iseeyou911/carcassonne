@@ -1,0 +1,11 @@
+<img src="card_04.png" width="150" height="150" border="0" usemap="#map" />
+
+<map name="map">
+<!-- #$-:Image map file created by GIMP Image Map plug-in -->
+<!-- #$-:GIMP Image Map plug-in by Maurits Rijk -->
+<!-- #$-:Please do not edit lines starting with "#$" -->
+<!-- #$VERSION:2.3 -->
+<!-- #$AUTHOR:admin -->
+<area shape="poly" coords="0,0,49,54,91,54,150,0" target="castle"  nohref="nohref" />
+<area shape="poly" coords="0,0,49,54,91,54,150,0,150,150,0,150" target="field"  nohref="nohref" />
+</map>

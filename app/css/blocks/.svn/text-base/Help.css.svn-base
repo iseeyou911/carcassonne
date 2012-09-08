@@ -1,0 +1,5 @@
+.help-link {
+    text-decoration: underline;
+    color: #666;
+    cursor: pointer;
+}

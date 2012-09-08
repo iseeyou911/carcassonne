@@ -1,0 +1,12 @@
+<img src="card_06.png" width="150" height="149" border="0" usemap="#map" />
+
+<map name="map">
+<!-- #$-:Image map file created by GIMP Image Map plug-in -->
+<!-- #$-:GIMP Image Map plug-in by Maurits Rijk -->
+<!-- #$-:Please do not edit lines starting with "#$" -->
+<!-- #$VERSION:2.3 -->
+<!-- #$AUTHOR:admin -->
+<area shape="rect" coords="35,20,121,103" target="town"  nohref="nohref" />
+<area shape="poly" coords="70,149,50,103,68,103,89,149" target="road"  nohref="nohref" />
+<area shape="poly" coords="89,149,68,103,121,103,121,20,35,20,35,103,50,103,70,149,0,149,0,0,150,0,150,149" target="field"  nohref="nohref" />
+</map>
