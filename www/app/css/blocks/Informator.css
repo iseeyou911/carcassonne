@@ -1,0 +1,8 @@
+#InformatorApplicationSpinner {
+    width : 100px;
+    height : 13px;
+    background-image: url(../../../resources/images/ajax-loader.gif);
+    display: none;
+    float: right;
+}
+    

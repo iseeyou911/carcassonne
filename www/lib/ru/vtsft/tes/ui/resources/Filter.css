@@ -1,0 +1,191 @@
+.dataFilter {
+	width:100%;
+	height:60px;
+	border: 1px solid #ccc;
+	font-weight: bold;
+	z-index: 2;
+	padding: 3px;
+}
+
+.dilalogButtonRight {
+	float: right;
+}
+.dataFilter:hover {
+	border: 1px solid #666;
+}
+
+.isRemoveOld {
+	margin: 5px ;
+}
+
+.filterFields {
+	padding: 10px 0 0 0;
+	margin: 10px 0 5px 0;
+	border-top : 1px solid #ccc;
+}
+ 
+.filterButtonConteiner{
+	height: 20px;
+	float : left;
+	margin: 4px;	
+}
+
+.filter {
+	width : 100%;
+	height: 30px;
+}
+
+ul {
+	margin: 5px;
+}
+
+.filterList {
+	width: 100%;
+	float: left;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.groupFilter {
+
+	float: left;
+
+	margin: 4px;
+	padding: 0;
+	overflow: hidden;
+	font-size: 11px;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.groupFilter.active {
+	-moz-box-shadow: 0 0 4px rgba(0, 200, 0, 0.8);
+	-webkit-box-shadow: 0 0 4px rgba(0, 200, 0, 0.8);
+	box-shadow: 0 0 4px rgba(0, 200, 0, 0.8);
+	border: 1px solid #00dd00;
+}
+
+.FilterConteiner {
+    list-style: none;
+    clear: both;
+    position: relative;
+}
+
+.singleFilter.enum{
+    height: auto;
+}
+
+.exclude {
+    margin: 0;
+    padding: 0;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    font-size: 10px;
+
+}
+
+.editFilterButton  {
+    overflow-x: hidden;
+    cursor: pointer;
+    white-space: nowrap;
+    width: 96px;
+    margin: 0;
+    padding: 0;
+    padding-left: 3px;
+
+}
+
+.subTitle{
+    font-size: 13px;
+    width: 100%;
+    font-weight: normal;
+}
+
+.singleFilter {
+    position: relative;
+    float: left;
+    margin: 3px;
+    padding: 2px;
+    height: 55px;
+    width : 120px;
+    overflow: hidden;
+    color: #fff;
+    background-color: #0064cd !important;
+    background-repeat: repeat-x !important;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd)) !important;
+    background-image: -moz-linear-gradient(top, #049cdb, #0064cd) !important;
+    background-image: -ms-linear-gradient(top, #049cdb, #0064cd) !important;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd)) !important;
+    background-image: -webkit-linear-gradient(top, #049cdb, #0064cd) !important;
+    background-image: -o-linear-gradient(top, #049cdb, #0064cd) !important;
+    background-image: linear-gradient(top, #049cdb, #0064cd) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#049cdb', endColorstr = '#0064cd', GradientType = 0) !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) !important;
+    border-color: #0064cd #0064cd #003f81 !important;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25) !important;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+.singleFilter.clear {
+    clear: both;
+}
+
+.filterType {
+	width: 250px;
+}
+
+.removeFilterButton {
+	width: 20px;
+    height: 100%;
+	margin-left : 4px;
+
+    font-weight: bold;
+    font-size: 16px;
+    opacity: 0.3;
+    color: #000;
+    text-shadow: white 0px 1px 0px;
+    float: right;
+    text-decoration: none;
+}
+
+.removeFilterButton:hover {
+    cursor: pointer;
+	opacity: 0.5;
+}
+
+.FilterGroupRemoveButton {
+    margin: 5px;
+    border-left: 1px solid #ccc;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    opacity: 0.3;
+    text-shadow: white 0px 1px 0px;
+}
+
+.FilterGroupRemoveButton:hover {
+    cursor: pointer;
+	opacity: 0.5;
+}
+
+.DropDownButton {
+    height : 100% !important;
+    padding: 8px;
+    color: #333;
+}
+
+.DropDownButton:hover, .groupFilter > .dijitHasDropDownOpen {
+     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+    border-radius: 2px 0 0 2px;
+}

@@ -1,0 +1,14 @@
+.CarcassonneCard, .CarcassonneEmptySlot {
+   background : url("/resources/images/cards/card_1.png");
+   transform:rotate(90deg);
+-webkit-transform:rotate(90deg);
+-moz-transform:rotate(90deg);
+-o-transform:rotate(90deg);
+   margin: 1px ;
+   position: absolute;
+}
+
+.CarcassonneEmptySlot {
+    background: none;
+   background-color: #eee;
+}
